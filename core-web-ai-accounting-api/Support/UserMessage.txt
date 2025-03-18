@@ -1,0 +1,33 @@
+can you suggest which pricing plan would be best for the below user?
+[
+  {
+      "ProductCode": "sbc_goproposal",
+      "CounterKey": "sbc_goproposal_daily_oversuite_engagement_letters",
+      "Value": 1
+  },
+  {
+      "ProductCode": "sbc_goproposal",
+      "CounterKey": "sbc_goproposal_daily_proposals",
+      "Value": 15
+  },
+  {
+      "ProductCode": "sbc_goproposal",
+      "CounterKey": "sbc_goproposal_daily_aml_basic_checks",
+      "Value": 12
+  },
+  {
+      "ProductCode": "sbc_goproposal",
+      "CounterKey": "sbc_goproposal_daily_aml_basic_checks",
+      "Value": 10
+  },
+  {
+      "ProductCode": "sbc_goproposal",
+      "CounterKey": "sbc_goproposal_daily_aml_biometric_checks",
+      "Value": 2
+  },
+  {
+      "ProductCode": "sbc_goproposal",
+      "CounterKey": "sbc_goproposal_daily_aml_iav_checks",
+      "Value": 8
+  }
+]

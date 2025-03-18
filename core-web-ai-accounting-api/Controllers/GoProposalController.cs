@@ -27,18 +27,18 @@ public class GoProposalController : ControllerBase
     {
         var chatCompletionService = _kernel.GetRequiredService<IChatCompletionService>();
 
-        ChatHistory history = [];
+        ChatHistory history = new ChatHistory();
 
         // Add system message
         history.Add(
-            new()
+            new ChatMessageContent
             {
                 Role = AuthorRole.System,
-                Content = "You are a helpful assistant"
+                Content = System.IO.File.ReadAllText("Support/Context.txt")
             }
         );
 
-        history.AddUserMessage("Can you list 5 numbers that are multiples of 2, please.");
+        history.AddUserMessage(System.IO.File.ReadAllText("Support/UserMessage.txt"));
 
         // Enable planning
         OpenAIPromptExecutionSettings openAIPromptExecutionSettings = new()

@@ -1,0 +1,115 @@
+{
+  "systemPrompt": "The user has the following GoProposal pricing plans. Each plan has a list of included allowances, base price, and over-allowance charges per unit.",
+  "plans": [
+    {
+      "Id": "goproposal-essentials",
+      "Name": "GoProposal Essentials",
+      "BasePrice": "£0.00 per month",
+      "MonthlyAllowance": {
+        "Proposals": 1,
+        "SmartEngagementLetters": 1,
+        "KYCChecksOrRiskAssessments": 1
+      },
+      "OverAllowanceCharges": {
+        "Proposal": { "Threshold": 2, "Charge": "£12.00" },
+        "SmartEngagementLetter": { "Threshold": 2, "Charge": "£9.00" },
+        "KYCCheckOrRiskAssessment": { "Threshold": 2, "Charge": "£9.00" },
+        "AMLBasicCheck": { "Threshold": 1, "Charge": "£2.50" },
+        "AMLDocumentCheck": { "Threshold": 1, "Charge": "£7.00" },
+        "AMLBiometricCheck": { "Threshold": 1, "Charge": "£13.50" },
+        "AMLInternationalAddressVerificationCheck": { "Threshold": 1, "Charge": "£12.50" }
+      }
+    },
+    {
+      "Id": "goproposal-standard",
+      "Name": "GoProposal Standard",
+      "BasePrice": "£60.00 per month",
+      "MonthlyAllowance": {
+        "Proposals": 5,
+        "SmartEngagementLetters": 5,
+        "KYCChecksOrRiskAssessments": 5
+      },
+      "OverAllowanceCharges": {
+        "Proposal": { "Threshold": 6, "Charge": "£10.00" },
+        "SmartEngagementLetter": { "Threshold": 6, "Charge": "£7.00" },
+        "KYCCheckOrRiskAssessment": { "Threshold": 6, "Charge": "£7.00" },
+        "AMLBasicCheck": { "Threshold": 1, "Charge": "£2.00" },
+        "AMLDocumentCheck": { "Threshold": 1, "Charge": "£5.50" },
+        "AMLBiometricCheck": { "Threshold": 1, "Charge": "£10.50" },
+        "AMLInternationalAddressVerificationCheck": { "Threshold": 1, "Charge": "£10.00" }
+      }
+    },
+    {
+      "Id": "goproposal-premium",
+      "Name": "GoProposal Premium",
+      "BasePrice": "£170.00 per month",
+      "MonthlyAllowance": {
+        "Proposals": 20,
+        "SmartEngagementLetters": 20,
+        "KYCChecksOrRiskAssessments": 20
+      },
+      "OverAllowanceCharges": {
+        "Proposal": { "Threshold": 21, "Charge": "£7.00" },
+        "SmartEngagementLetter": { "Threshold": 21, "Charge": "£3.00" },
+        "KYCCheckOrRiskAssessment": { "Threshold": 21, "Charge": "£3.00" },
+        "AMLBasicCheck": { "Threshold": 1, "Charge": "£1.50" },
+        "AMLDocumentCheck": { "Threshold": 1, "Charge": "£4.50" },
+        "AMLBiometricCheck": { "Threshold": 1, "Charge": "£8.50" },
+        "AMLInternationalAddressVerificationCheck": { "Threshold": 1, "Charge": "£7.50" }
+      }
+    }
+  ]
+}
+Based on the user's current usage, suggest a pricing plan. Also, determine whether they should upgrade, downgrade, or remain on their current plan. If a change is suggested, calculate the cost difference and potential savings. The response should be in following format. Example responses:
+
+{
+  "CurrentPricingPlan": "GoProposal Standard",
+  "CurrentUsage": {
+    "Proposals": 7,
+    "SmartEngagementLetters": 7,
+    "KYCChecksOrRiskAssessments": 7
+  },
+  "RecommendedPlan": "GoProposal Premium",
+  "ChangeRecommendation": "Upgrade",
+  "CostDifference": {
+    "ExtraSpent": "£20.00",
+    "PotentialSavings": "£15.00"
+  },
+  "Response": "Based on your current usage, you are exceeding the allowance of your GoProposal Standard plan, leading to additional charges. Upgrading to the GoProposal Premium plan would save you £15.00 per month while providing a higher allowance for proposals, engagement letters, and KYC checks. We recommend upgrading to optimize costs and avoid overage fees."
+}
+
+{
+  "CurrentPricingPlan": "GoProposal Premium",
+  "CurrentUsage": {
+    "Proposals": 5,
+    "SmartEngagementLetters": 5,
+    "KYCChecksOrRiskAssessments": 5
+  },
+  "RecommendedPlan": "GoProposal Standard",
+  "ChangeRecommendation": "Downgrade",
+  "CostDifference": {
+    "CurrentSpend": "£170.00",
+    "NewSpend": "£60.00",
+    "PotentialSavings": "£110.00"
+  },
+  "Response": "Your current usage is well within the limits of the GoProposal Standard plan. By downgrading from GoProposal Premium to Standard, you could save £110.00 per month without exceeding the included allowances. We recommend switching to a lower plan to reduce costs."
+}
+
+{
+  "CurrentPricingPlan": "GoProposal Standard",
+  "CurrentUsage": {
+    "Proposals": 4,
+    "SmartEngagementLetters": 4,
+    "KYCChecksOrRiskAssessments": 4
+  },
+  "RecommendedPlan": "GoProposal Standard",
+  "ChangeRecommendation": "No Change",
+  "CostDifference": {
+    "CurrentSpend": "£60.00",
+    "NewSpend": "£60.00",
+    "PotentialSavings": "£0.00"
+  },
+  "Response": "Your current usage fits well within the limits of the GoProposal Standard plan. You are not incurring any additional charges, and there are no cost benefits in upgrading or downgrading. We recommend staying on your current plan."
+}
+
+Add only the response in output.
