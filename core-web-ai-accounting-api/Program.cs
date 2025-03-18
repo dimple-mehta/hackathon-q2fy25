@@ -44,12 +44,8 @@ builder.Services.AddAzureOpenAIChatCompletion(
 // builder.Services.AddSingleton<GoProposal_Plugins>();
 
 // Create the plugin collection (using the KernelPluginFactory to create plugins from objects)
-/* builder.Services.AddSingleton<KernelPluginCollection>((serviceProvider) =>
-    [
-        KernelPluginFactory.CreateFromObject(serviceProvider.GetRequiredService<GoProposal_Plugins>())
-    ]
-);
-*/
+builder.Services.AddSingleton<KernelPluginCollection>();
+
 
 // Finally, create the Kernel service with the service provider and plugin collection
 builder.Services.AddTransient((serviceProvider) => {
