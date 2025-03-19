@@ -1,4 +1,3 @@
-using core_web_ai_accounting_api.Plugins;
 using Microsoft.SemanticKernel;
 
 var builder = WebApplication.CreateBuilder(args);
