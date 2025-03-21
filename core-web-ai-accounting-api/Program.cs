@@ -40,7 +40,7 @@ builder.Services.AddAzureOpenAIChatCompletion(
 #pragma warning restore SKEXP0010 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 
 // Create singletons of your plugins
-// builder.Services.AddSingleton<GoProposal_Plugins>();
+//builder.Services.AddSingleton<>();
 
 // Create the plugin collection (using the KernelPluginFactory to create plugins from objects)
 builder.Services.AddSingleton<KernelPluginCollection>();
@@ -52,6 +52,19 @@ builder.Services.AddTransient((serviceProvider) => {
     return new Kernel(serviceProvider, pluginCollection);
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        policy =>
+        {
+            policy.WithOrigins("https://app.sandbox.sbc.sage.com")
+                  .AllowAnyMethod()
+                  .AllowAnyHeader()
+                  .AllowCredentials();
+        });
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -60,6 +73,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+app.UseCors("AllowSpecificOrigin");
 
 app.UseHttpsRedirection();
 
