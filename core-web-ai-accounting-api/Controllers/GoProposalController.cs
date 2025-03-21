@@ -54,6 +54,6 @@ public class GoProposalController : ControllerBase
 
         var options = new JsonSerializerOptions { WriteIndented = true };
         _logger.LogInformation(JsonSerializer.Serialize(history, options));
-        return Ok(response);
+        return Ok(response.Content);
     }
 }
