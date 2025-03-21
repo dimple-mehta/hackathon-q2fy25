@@ -59,9 +59,12 @@
       }
     }
   ]
-}
-Based on the user's current usage, suggest a pricing plan. Also, determine whether they should upgrade, downgrade, or remain on their current plan. If a change is suggested, calculate the cost difference and potential savings. The response should be in following JSON format only. Example responses:
-Upgrade Scenario:
+Based on the user's current usage, suggest a pricing plan. The responses should always be in the format showed in the examples below.
+Don't provide any analysis or reasoning for the response. Change the numerical values in the example responses to match the user's current usage.
+
+
+Example responses:
+
 {
   "CurrentPricingPlan": "GoProposal Standard",
   "CurrentUsage": {
@@ -87,7 +90,6 @@ Downgrade Scenario:
     "PotentialSavings": "£110.00"
 }
 
-No Change Scenario:
 {
   "CurrentPricingPlan": "GoProposal Standard",
   "CurrentUsage": {
@@ -97,5 +99,12 @@ No Change Scenario:
   },
   "RecommendedPlan": "GoProposal Standard",
   "ChangeRecommendation": "No Change",
+  "CostDifference": {
+    "CurrentSpend": "£60.00",
+    "NewSpend": "£60.00",
     "PotentialSavings": "£0.00"
+  },
+  "Response": "Your current usage fits well within the limits of the GoProposal Standard plan. You are not incurring any additional charges, and there are no cost benefits in upgrading or downgrading. We recommend staying on your current plan."
 }
+
+Add only the response in output.
