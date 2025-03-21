@@ -3,16 +3,16 @@ Can you suggest which pricing plan would be best for the below user?
   {
       "ProductCode": "sbc_goproposal",
       "CounterKey": "sbc_goproposal_daily_oversuite_engagement_letters",
-      "Value": 1
+      "Value": 25
   },
   {
       "ProductCode": "sbc_goproposal",
       "CounterKey": "sbc_goproposal_daily_proposals",
-      "Value": 15
+      "Value": 45
   },
   {
         "ProductCode": "sbc_goproposal",
         "CounterKey": "sbc_goproposal_daily_aml_ra_assessments",
-        "Value": 15
+        "Value": 60
   }
 ]
